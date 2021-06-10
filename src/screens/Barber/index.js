@@ -67,6 +67,8 @@ export default () => {
       if (json.error == '') {
         setUserInfo(json.data);
         setFavorited(json.data.favorited);
+
+        console.log(json.data.available);
       } else {
         alert('Erro: ' + json.error);
       }
@@ -132,7 +134,7 @@ export default () => {
                 <ServiceItem key={key}>
                   <ServiceInfo>
                     <ServiceName>{item.name}</ServiceName>
-                    <ServicePrice>R$ {item.price}</ServicePrice>
+                    <ServicePrice>R$ {item.price.toFixed(2)}</ServicePrice>
                   </ServiceInfo>
                   <ServiceChooseButton onPress={() => handleServiceChoose(key)}>
                     <ServiceChooseBtnText>Agendar</ServiceChooseBtnText>
